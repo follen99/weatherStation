@@ -1,6 +1,7 @@
 #include "DHT.h"
 
 #define DHTPIN 1     // Digital pin connected to the DHT sensor
+#define PHOTOPIN A0     // Digital pin connected to the DHT sensor
 
 #define DHTTYPE DHT11   // DHT 11
 
@@ -45,5 +46,10 @@ void loop() {
   hif = temp percepita f
   */
 
+
+  /** MIN = 0, MAX = 1024*/
+  int photoRes = analogRead(PHOTOPIN);
+  Serial.print("Photoresistor: ");
+  Serial.println(photoRes);
 
 }
