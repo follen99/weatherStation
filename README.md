@@ -1,11 +1,6 @@
 
 # weatherStation
 ![enter image description here](https://i.imgur.com/7wUpwVc.png)
-### The UI
-![WeatherStation](https://i.imgur.com/GxdUQAs.png)
-The **UI** was built using [ThingSpeak](https://thingspeak.com/) that offers an **API** to populate the various **Widgets**
-![enter image description here](https://i.imgur.com/yBOWlMe.png)
-
 ### Overview
 This is a simple Weather Station having the following sensors:
 
@@ -24,6 +19,13 @@ Having such a number of `analog inputs` i'll be able to connect a lot of analog 
  - Barometer
  - Pyranometer 
  - CO2 sensor
+### The UI
+![WeatherStation](https://i.imgur.com/GxdUQAs.png)
+The **UI** was built using [ThingSpeak](https://thingspeak.com/) that offers an **API** to populate the various **Widgets**
+![enter image description here](https://i.imgur.com/3Vg22i2.png)
+
+
+
 
 ---
 ### Parts used
