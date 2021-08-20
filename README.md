@@ -1,5 +1,5 @@
 # weatherStation
-![WeatherStation](https://imgur.com/GxdUQAs)
+![WeatherStation](https://i.imgur.com/GxdUQAs.png)
 This is a simple Weather Station having the following sensors:
 
  - Temperature sensor
