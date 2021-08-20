@@ -36,8 +36,14 @@ The project consists of **two main parts**:
 #### Arduino case
 The case only has room for the `NodeMCU` and the `DHT11 sensor`.
 Moreover, the case has an hole on the left side for the external `Wind Sensor` and a vent on the right for the `DHT11 sensor`.
+![front](https://i.imgur.com/TjuZdAM.png)
+
+![back](https://i.imgur.com/WKYXUVF.png)
+
 
 #### Wind Speed Support
 The wind speed sensor is supported by a 3D printed part mounted on the wall.
 This part should be printed in a weather resistant material, such as PETG or ABS, don't use PLA.
 Moreover, the "blades" are 3D printed too.
+
+![enter image description here](https://i.imgur.com/7wUpwVc.png)
