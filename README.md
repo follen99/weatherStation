@@ -1,3 +1,4 @@
+
 # weatherStation
 ![WeatherStation](https://i.imgur.com/GxdUQAs.png)
 This is a simple Weather Station having the following sensors:
@@ -29,7 +30,7 @@ Having such a number of `analog inputs` i'll be able to connect a lot of analog 
 
 ---
 ### 3D Project
-The project is available on **Thingiverse**, or there is a **Folder** where all files are uploaded.
+The project is available on [Thingiverse](https://www.thingiverse.com/thing:4937362), or there is a **Folder** where all files are uploaded.
 The project consists of **two main parts**:
 
 #### Arduino case
