@@ -60,4 +60,5 @@ We can use **MATLAB** scripts to analyze our data:
 ### Histograms
 ![histogram](https://i.imgur.com/JxM5i7b.png)
 That computes: 
+
 ![enter image description here](https://i.imgur.com/kTzertz.png)
