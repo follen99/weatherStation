@@ -1,6 +1,12 @@
 
 # weatherStation
+![enter image description here](https://i.imgur.com/7wUpwVc.png)
+### The UI
 ![WeatherStation](https://i.imgur.com/GxdUQAs.png)
+The **UI** was built using [ThingSpeak](https://thingspeak.com/) that offers an **API** to populate the various **Widgets**
+![enter image description here](https://i.imgur.com/yBOWlMe.png)
+
+### Overview
 This is a simple Weather Station having the following sensors:
 
  - Temperature sensor
@@ -45,5 +51,5 @@ Moreover, the case has an hole on the left side for the external `Wind Sensor` a
 The wind speed sensor is supported by a 3D printed part mounted on the wall.
 This part should be printed in a weather resistant material, such as PETG or ABS, don't use PLA.
 Moreover, the "blades" are 3D printed too.
+![enter image description here](https://i.imgur.com/YaZVVCU.png)
 
-![enter image description here](https://i.imgur.com/7wUpwVc.png)
