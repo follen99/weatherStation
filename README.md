@@ -1,4 +1,5 @@
 
+
 # weatherStation
 ![enter image description here](https://i.imgur.com/7wUpwVc.png)
 ### Overview
@@ -62,3 +63,14 @@ We can use **MATLAB** scripts to analyze our data:
 That computes: 
 
 ![enter image description here](https://i.imgur.com/kTzertz.png)
+
+---
+### Some Pics
+![enter image description here](https://i.imgur.com/qeI81sg.jpg)
+
+![enter image description here](https://i.imgur.com/XHGKIaL.jpg)
+
+
+
+https://user-images.githubusercontent.com/74026278/130363595-80cdf6d4-ce8a-403d-b3db-37c81fa7ad7b.mp4
+
