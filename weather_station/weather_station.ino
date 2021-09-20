@@ -18,11 +18,11 @@ DHT dht(DHTPIN, DHTTYPE);
 
 // ############ ATTENZIONE DATI DA NON CARICARE SU GITHUB ###############
 WiFiClient client;                                //WiFi connection details
-char ssid[] = "SSID";                 //WiFi Name
-char pass[] = "PASSWORD";   
+char ssid[] = "TuWiFiLAmericano";                 //WiFi Name
+char pass[] = "Micogile11";   
 
-unsigned long myChannelNumber = channel_number;          //Thingspeak channel number
-const char * myWriteAPIKey = "WRITE_API_KEY"; 
+unsigned long myChannelNumber = 1482054;          //Thingspeak channel number
+const char * myWriteAPIKey = "UAEJU2TFYP2AB77M"; 
 
 
 // ###################### MEASUREMENTS VARIABLES ######################
@@ -45,20 +45,38 @@ void setup() {
   Serial.println("\n\n");
 
   pinMode(WINDPIN, INPUT);
-  
+
+  connectToWiFi();
+
+  Serial.println("Waiting one second...");
+  delay(1000);
+
+  Serial.println("Starting Sensors...");
   dht.begin();
+  Serial.println("Sensors OK");
 }
 
 void recTemp(){
+  Serial.println("Reading temp...");
   temp = dht.readTemperature();   //reading temperature
+  Serial.print("temp: ");
+  Serial.println(temp);
 }
 
 void recHum(){
-  hum = dht.readHumidity();       //reading humidity
+  Serial.println("Reading Humidity...");
+  hum = dht.readHumidity() - 60;       //reading humidity
+  Serial.print("Hum: ");
+  Serial.println(hum);
+  // -60 as calibration
 }
 
 void recPercTemp(){
+  Serial.println("Computing perceived temp...");
   percTemp = dht.computeHeatIndex(temp, hum, false); //computing perceived temperature
+  Serial.print("Perc temp: ");
+  Serial.print(percTemp);
+  Serial.print(" C°");
 }
 
 bool checkDHT11(){
@@ -70,6 +88,8 @@ bool checkDHT11(){
 }
 
 void recWindSpeed(){
+  Serial.println("Reading Wind Speed ...");
+  
   float avg = 0;
 
   for(int i = 0; i < 10000 ; i++){
@@ -77,7 +97,18 @@ void recWindSpeed(){
     //delay(50);
   }
 
-  windSpeed = avg/10000;
+  //windSpeed = avg/10000;
+
+  float avgCalibrated = (avg/10000) - 12;
+  if(avgCalibrated < 1){
+    windSpeed = 0;
+  }else{
+    windSpeed = avgCalibrated * 3;
+  // from 0 to 60
+  }
+
+  Serial.print("Wind speed: ");
+  Serial.println(windSpeed);
 }
 
 
@@ -100,10 +131,7 @@ void updateThingSpeak ()                                             //Function 
   }
 }
 
-
-void loop() {
-  if ((millis() - lastTime) > timerDelay) {
-    // ############ WIFI OPS ########
+void connectToWiFi(){
     WiFi.begin(ssid, pass);                                            //Connect to WiFi network
     Serial.print("Starting");
     while (WiFi.status() != WL_CONNECTED)
@@ -116,11 +144,25 @@ void loop() {
   
     Serial.print("Connected, IP address: ");
     Serial.println(WiFi.localIP());
-  
+}
+
+
+void loop() {
+  if ((millis() - lastTime) > timerDelay) {
+    // ############ WIFI OPS ########
+    if(WiFi.status() != WL_CONNECTED){
+      connectToWiFi();
+    }
+
+    Serial.println("Connecting to database");
   
     // ############ THINGSPEAK OPS ########
     ThingSpeak.begin(client);                                          //Initialise ThingSpeak
     delay(10000);   //wait 10 secs
+
+    Serial.println("Connected.");
+    Serial.println("");
+    Serial.println("Reading sensors...");
   
 
     recWindSpeed();
@@ -130,7 +172,7 @@ void loop() {
     recPercTemp();
   
     //check if sensors are ok
-    if(checkDHT11()){
+    if(checkDHT11() && temp > -10 && temp < 50 && hum > -1 && hum < 100){
       Serial.println("Sending data...");
       updateThingSpeak();
     
